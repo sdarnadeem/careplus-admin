@@ -25,8 +25,14 @@ const TwoFactorAuth = () => {
         height="400px"
         sx={{ boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 4px", padding: "0 50px" }}
       >
-        <Grid container item alignItems="center" justifyContent="center">
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }} mr="20px">
+        <Grid
+          container
+          item
+          alignItems="center"
+          justifyContent="center"
+          pr="20px"
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
         </Grid>
@@ -40,7 +46,7 @@ const TwoFactorAuth = () => {
         >
           <Grid item>
             <Typography variant="h5" component="h5">
-              Two factor authentication
+              Two-factor authentication
             </Typography>
           </Grid>
           <Grid item sx={{ width: "fit-content" }}>
