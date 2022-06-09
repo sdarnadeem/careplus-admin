@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -8,6 +8,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Link from "@mui/material/Link";
 
 const TwoFactorAuth = () => {
+  const [isSMS, setSMS] = useState(false);
+  const number = "91******07";
   return (
     <Box
       display="flex"
@@ -51,7 +53,11 @@ const TwoFactorAuth = () => {
           </Grid>
           <Grid item sx={{ width: "fit-content" }}>
             <Typography variant="caption" component="p">
-              Open your authenticator app to enter the code for careplus
+              Open{" "}
+              {isSMS
+                ? `the sms sent to the number ${number}`
+                : "your authenticator app"}{" "}
+              to enter the code for careplus
             </Typography>
           </Grid>
         </Grid>
@@ -68,9 +74,15 @@ const TwoFactorAuth = () => {
         </Grid>
         <Grid item>
           <Typography variant="caption" component="p">
-            Can not have access to the app,{" "}
-            <Link href="#" variant="body2">
-              send sms instead
+            {isSMS
+              ? "Can not have access to mobile, "
+              : "Can not have access to the app, "}
+            <Link
+              sx={{ cursor: "pointer" }}
+              onClick={() => setSMS((prev) => !prev)}
+              variant="body2"
+            >
+              {isSMS ? "Use Authenticator app instead" : "send sms instead"}
             </Link>
           </Typography>
         </Grid>
