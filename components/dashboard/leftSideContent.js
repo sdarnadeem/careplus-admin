@@ -14,46 +14,57 @@ const content = [
   {
     icon: DashboardIcon,
     text: "Dashboard",
+    slug: "dashboard",
   },
   {
     icon: AnalyticsIcon,
     text: "Analytics",
+    slug: "analytics",
   },
   {
     icon: TravelExploreIcon,
     text: "Plans",
+    slug: "plans",
   },
   {
     icon: CircleNotificationsIcon,
     text: "Push Notifications",
+    slug: "push-notifications",
   },
   {
     icon: GroupIcon,
     text: "Users",
+    slug: "users",
   },
   {
     icon: RowingIcon,
     text: "User Activity",
+    slug: "user-activity",
   },
   {
     icon: CheckCircleIcon,
     text: "User Approval",
+    slug: "user-profile",
   },
   {
     icon: WorkspacePremiumIcon,
     text: "User Permissions",
+    slug: "user-permissions",
   },
   {
     icon: BookIcon,
     text: "Blog",
+    slug: "blog",
   },
   {
     icon: AccountBoxIcon,
     text: "Admin Profile",
+    slug: "admin-profile",
   },
   {
     icon: LogoutIcon,
     text: "Logout",
+    slug: "logout",
   },
 ];
 
