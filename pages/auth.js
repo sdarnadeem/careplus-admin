@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Link from "@mui/material/Link";
 
 const TwoFactorAuth = () => {
   return (
@@ -25,7 +26,7 @@ const TwoFactorAuth = () => {
         sx={{ boxShadow: "rgba(0, 0, 0, 0.4) 0px 1px 4px", padding: "0 50px" }}
       >
         <Grid container item alignItems="center" justifyContent="center">
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }} mr="20px">
             <LockOutlinedIcon />
           </Avatar>
         </Grid>
@@ -35,16 +36,16 @@ const TwoFactorAuth = () => {
           container
           item
           alignItems="center"
-          justifyContent="center"
+          justifyContent="start"
         >
           <Grid item>
             <Typography variant="h5" component="h5">
               Two factor authentication
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item sx={{ width: "fit-content" }}>
             <Typography variant="caption" component="p">
-              Open your authintactor app and emter the code for careplus
+              Open your authenticator app to enter the code for careplus
             </Typography>
           </Grid>
         </Grid>
@@ -60,8 +61,11 @@ const TwoFactorAuth = () => {
           />
         </Grid>
         <Grid item>
-          <Typography variant="body2" component="p">
-            Can not have access to the app, send sms instead
+          <Typography variant="caption" component="p">
+            Can not have access to the app,{" "}
+            <Link href="#" variant="body2">
+              send sms instead
+            </Link>
           </Typography>
         </Grid>
       </Grid>
