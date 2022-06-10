@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import Doctors from "./doctors/Doctors.jsx";
 import Analytics from "./analytics/Analytics";
+import Clinics from "./clinics/Clinics";
 
 import { Stack } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -18,6 +19,8 @@ const MiddleSide = () => {
     switch (tab) {
       case "doctors":
         return <Doctors />;
+      case "clinics":
+        return <Clinics />;
       default:
         return <Analytics />;
     }

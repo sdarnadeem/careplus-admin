@@ -33,6 +33,8 @@ const Analytics = () => {
         className="rdg-light fill-grid"
         onRowClick={handleRowClick}
         onSort={handleSort}
+        selectedRows={(rows) => console.log(rows)}
+        onSelectedRowsChange={(rows) => console.log(rows)}
       />
     </>
   );

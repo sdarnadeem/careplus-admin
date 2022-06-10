@@ -1,9 +1,14 @@
 const clinicColumns = [
   { key: "id", name: "ID", resizable: true },
-  { key: "name", name: "Name", resizable: true },
-  { key: "open", name: "Open Time", resizable: true },
-  { key: "close", name: "Close Time", resizable: true },
-  { key: "officeAddress", name: "Office Address", resizable: true },
+  { key: "name", name: "Name", resizable: true, sortable: true },
+  { key: "open", name: "Open Time", resizable: true, sortable: true },
+  { key: "close", name: "Close Time", resizable: true, sortable: true },
+  {
+    key: "officeAddress",
+    name: "Office Address",
+    resizable: true,
+    sortable: true,
+  },
 ];
 
 const clinicRows = [
@@ -94,9 +99,9 @@ const clinicRows = [
 ];
 const doctorColumns = [
   { key: "id", name: "ID", resizable: true },
-  { key: "firstName", name: "First Name", resizable: true },
-  { key: "lastName", name: "Last Name", resizable: true },
-  { key: "address", name: "Address", resizable: true },
+  { key: "firstName", name: "First Name", resizable: true, sortable: true },
+  { key: "lastName", name: "Last Name", resizable: true, sortable: true },
+  { key: "address", name: "Address", resizable: true, sortable: true },
 ];
 
 const doctorRows = [
@@ -170,12 +175,17 @@ const doctorRows = [
 ];
 const userColumns = [
   { key: "id", name: "ID", resizable: true },
-  { key: "firstName", name: "First Name", resizable: true },
-  { key: "lastName", name: "Last Name", resizable: true },
-  { key: "address", name: "Address", resizable: true },
-  { key: "appointmentDate", name: "Appointment Date", resizable: true },
-  { key: "doctor", name: "Doctor", resizable: true },
-  { key: "clinic", name: "Clinic", resizable: true },
+  { key: "firstName", name: "First Name", resizable: true, sortable: true },
+  { key: "lastName", name: "Last Name", resizable: true, sortable: true },
+  { key: "address", name: "Address", resizable: true, sortable: true },
+  {
+    key: "appointmentDate",
+    name: "Appointment Date",
+    resizable: true,
+    sortable: true,
+  },
+  { key: "doctor", name: "Doctor", resizable: true, sortable: true },
+  { key: "clinic", name: "Clinic", resizable: true, sortable: true },
 ];
 
 const userRows = [
