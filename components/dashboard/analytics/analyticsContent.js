@@ -1,9 +1,9 @@
 const clinicColumns = [
-  { key: "id", name: "ID" },
-  { key: "name", name: "Name" },
-  { key: "open", name: "Open Time" },
-  { key: "close", name: "Close Time" },
-  { key: "officeAddress", name: "Office Address" },
+  { key: "id", name: "ID", resizable: true },
+  { key: "name", name: "Name", resizable: true },
+  { key: "open", name: "Open Time", resizable: true },
+  { key: "close", name: "Close Time", resizable: true },
+  { key: "officeAddress", name: "Office Address", resizable: true },
 ];
 
 const clinicRows = [
@@ -93,10 +93,10 @@ const clinicRows = [
   },
 ];
 const doctorColumns = [
-  { key: "id", name: "ID" },
-  { key: "firstName", name: "First Name" },
-  { key: "lastName", name: "Last Name" },
-  { key: "address", name: "Address" },
+  { key: "id", name: "ID", resizable: true },
+  { key: "firstName", name: "First Name", resizable: true },
+  { key: "lastName", name: "Last Name", resizable: true },
+  { key: "address", name: "Address", resizable: true },
 ];
 
 const doctorRows = [
@@ -168,6 +168,126 @@ const doctorRows = [
     address: "Sopore, Sagipora",
   },
 ];
+const userColumns = [
+  { key: "id", name: "ID", resizable: true },
+  { key: "firstName", name: "First Name", resizable: true },
+  { key: "lastName", name: "Last Name", resizable: true },
+  { key: "address", name: "Address", resizable: true },
+  { key: "appointmentDate", name: "Appointment Date", resizable: true },
+  { key: "doctor", name: "Doctor", resizable: true },
+  { key: "clinic", name: "Clinic", resizable: true },
+];
+
+const userRows = [
+  {
+    id: 154,
+    firstName: "ALbert",
+    lastName: "Helski",
+    address: "Sopore, Sagipora",
+    appointmentDate: "23-June-2023",
+    doctor: "Alaxnder",
+    clinic: "Summer Hall",
+  },
+  {
+    id: 990,
+    firstName: "Cersei",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 224,
+    firstName: "Jaime",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 334,
+    firstName: "Arya",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 440,
+    firstName: "Daenerys",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 370,
+    firstName: "Hommie",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 284,
+    firstName: "Ferrara",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 775,
+    firstName: "Rossini",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 980,
+    firstName: "Harvey",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 354,
+    firstName: "Harvey",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 79,
+    firstName: "Harvey",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+  {
+    id: 29,
+    firstName: "Harvey",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    appointmentDate: "31-July-2020",
+    doctor: "Nadeem",
+    clinic: "Tripmax",
+  },
+];
 
 const data = [
   {
@@ -177,6 +297,10 @@ const data = [
   {
     rows: doctorRows,
     columns: doctorColumns,
+  },
+  {
+    rows: userRows,
+    columns: userColumns,
   },
 ];
 
