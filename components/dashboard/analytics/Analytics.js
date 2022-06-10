@@ -19,7 +19,7 @@ const Analytics = () => {
   return (
     <>
       <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
-        <Tabs value={value} onChange={handleChange} centered>
+        <Tabs value={value} onChange={handleChange}>
           <Tab label="Active Clinic" />
           <Tab label="Active Doctor" />
           <Tab label="Active User" />
