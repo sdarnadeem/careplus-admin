@@ -12,6 +12,10 @@ const Analytics = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const handleRowClick = (row) => {
+    console.log(row);
+  };
+  const handleSort = (row) => {};
   return (
     <>
       <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
@@ -25,8 +29,9 @@ const Analytics = () => {
       <DataGrid
         columns={clinicColumns}
         rows={clinicRows}
-        style={{ backgroundColor: "white !important" }}
         className="rdg-light"
+        onRowClick={handleRowClick}
+        onSort={handleSort}
       />
     </>
   );
