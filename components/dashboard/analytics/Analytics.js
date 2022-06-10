@@ -3,7 +3,7 @@ import React from "react";
 import DataGrid from "react-data-grid";
 import { Box, Tabs, Tab } from "@mui/material";
 
-import { clinicRows, clinicColumns } from "./analyticsContent";
+import data from "./analyticsContent";
 
 const Analytics = () => {
   const [value, setValue] = React.useState(0);
@@ -27,8 +27,9 @@ const Analytics = () => {
         </Tabs>
       </Box>
       <DataGrid
-        columns={clinicColumns}
-        rows={clinicRows}
+        style={{ height: "100vh" }}
+        columns={data[value].columns}
+        rows={data[value].rows}
         className="rdg-light"
         onRowClick={handleRowClick}
         onSort={handleSort}

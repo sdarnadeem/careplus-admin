@@ -9,16 +9,16 @@ const Admin = () => {
   return (
     <>
       <div style={{ width: "100%", height: "70px" }}>Navbar</div>
-      <Grid container spacing={4}>
+      <Grid container spacing={5} padding={3}>
         <Grid item xs={2}>
           <LeftSide />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={10}>
           <MiddleSide />
         </Grid>
-        <Grid item xs={4}>
+        {/* <Grid item xs={4}>
           <RightSide />
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

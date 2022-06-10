@@ -24,11 +24,10 @@ const MiddleSide = () => {
   };
   return (
     <Stack spacing={3}>
-      <TextField
+      {/* <TextField
         elevation={2}
-        fullWidth
         id="input-with-icon-textfield"
-        margin="normal"
+        width="30%"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -37,7 +36,7 @@ const MiddleSide = () => {
           ),
         }}
         variant="outlined"
-      />
+      /> */}
       {renderTab()}
     </Stack>
   );
