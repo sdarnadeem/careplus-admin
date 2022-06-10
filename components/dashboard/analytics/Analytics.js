@@ -30,7 +30,7 @@ const Analytics = () => {
         style={{ height: "100vh" }}
         columns={data[value].columns}
         rows={data[value].rows}
-        className="rdg-light"
+        className="rdg-light fill-grid"
         onRowClick={handleRowClick}
         onSort={handleSort}
       />
