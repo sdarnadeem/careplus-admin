@@ -13,6 +13,7 @@ const Clinics = () => {
   const [value, setValue] = React.useState(0);
   const [selected, setSelected] = React.useState();
   const [openDialog, setOpenDialog] = React.useState(false);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -28,6 +29,7 @@ const Clinics = () => {
   };
 
   const handleButtonClick = (text) => {
+    setOpenDialog(true);
     dialogComponent = showModal(
       text,
       selected,

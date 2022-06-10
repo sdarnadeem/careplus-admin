@@ -113,7 +113,6 @@ export function showModal(
     if (selected) {
       if (text === "update") {
       } else if (text === "delete") {
-        setOpenDialog(true);
         return (
           <Dialog
             open={openDialog}
