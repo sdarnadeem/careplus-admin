@@ -7,17 +7,20 @@ import MiddleSide from "../components/dashboard/MiddleSide";
 
 const Admin = () => {
   return (
-    <Grid container spacing={4}>
-      <Grid item xs={2}>
-        <LeftSide />
+    <>
+      <div style={{ width: "100%", height: "70px" }}>Navbar</div>
+      <Grid container spacing={4}>
+        <Grid item xs={2}>
+          <LeftSide />
+        </Grid>
+        <Grid item xs={6}>
+          <MiddleSide />
+        </Grid>
+        <Grid item xs={4}>
+          <RightSide />
+        </Grid>
       </Grid>
-      <Grid item xs={6}>
-        <MiddleSide />
-      </Grid>
-      <Grid item xs={4}>
-        <RightSide />
-      </Grid>
-    </Grid>
+    </>
   );
 };
 
