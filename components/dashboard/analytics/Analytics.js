@@ -3,10 +3,11 @@ import React from "react";
 import DataGrid from "react-data-grid";
 import { Box, Tabs, Tab } from "@mui/material";
 
-import { rows, columns } from "./analyticsContent";
+import { clinicRows, clinicColumns } from "./analyticsContent";
 
 const Analytics = () => {
   const [value, setValue] = React.useState(0);
+  console.log(value);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -22,9 +23,10 @@ const Analytics = () => {
         </Tabs>
       </Box>
       <DataGrid
-        columns={columns}
-        rows={rows}
-        style={{ backgroundColor: "white" }}
+        columns={clinicColumns}
+        rows={clinicRows}
+        style={{ backgroundColor: "white !important" }}
+        className="rdg-light"
       />
     </>
   );

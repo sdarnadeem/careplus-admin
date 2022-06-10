@@ -1,23 +1,21 @@
-export const columns = [
+export const clinicColumns = [
   { key: "id", name: "ID" },
-  { key: "firstName", name: "First Name" },
-  { key: "lastName", name: "Last Name" },
-  { key: "age", name: "Age" },
+  { key: "name", name: "Name" },
+  { key: "openTime", name: "Open Time" },
+  { Key: "closeTime", name: "Close Time" },
 ];
 
-// export const rows = [
-//   { id: 0, title: "Example" },
-//   { id: 1, title: "Demo" },
-// ];
-
-export const rows = [
-  { key: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { key: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { key: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { key: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { key: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { key: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { key: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { key: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { key: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+export const clinicRows = [
+  { id: 25, name: "Jon", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 885, name: "Cersei", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 78, name: "Jaime", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 23, name: "Arya", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 55, name: "Daenerys", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 66, name: "Hommie", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 77, name: "Ferrara", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 88, name: "Rossini", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 44, name: "Harvey", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 78, name: "Harvey", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 79, name: "Harvey", openTime: "09:00 AM", closeTime: "05:00 PM" },
+  { id: 29, name: "Harvey", openTime: "09:00 AM", closeTime: "05:00 PM" },
 ];
