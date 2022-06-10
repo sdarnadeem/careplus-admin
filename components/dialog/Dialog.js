@@ -6,7 +6,16 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-const CustomDialog = () => {
+const CustomDialog = ({
+  open,
+  handleClose,
+  title,
+  content,
+  noFun,
+  yesFun,
+  noText,
+  yesText,
+}) => {
   return (
     <Dialog
       open={open}
@@ -14,23 +23,20 @@ const CustomDialog = () => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">
-        {"Use Google's location service?"}
-      </DialogTitle>
+      <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
+          {content}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Disagree</Button>
-        <Button onClick={handleClose} autoFocus>
-          Agree
+        <Button onClick={noFun}>{noText}</Button>
+        <Button onClick={yesFun} autoFocus>
+          {yesText}
         </Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default Dialog;
+export default CustomDialog;

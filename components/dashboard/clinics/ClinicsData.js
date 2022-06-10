@@ -1,3 +1,5 @@
+import Dialog from "../../dialog/Dialog";
+
 export const columns = [
   { key: "id", name: "ID", resizable: true },
   { key: "name", name: "Name", resizable: true, sortable: true },
@@ -97,3 +99,36 @@ export const rows = [
     officeAddress: "27 Houston California",
   },
 ];
+
+export function showModal(
+  text,
+  selected,
+  handleCloseDialog,
+  openDialog,
+  setOpenDialog
+) {
+  console.log(text);
+  if (text === "newClinic") {
+  } else {
+    if (selected) {
+      if (text === "update") {
+      } else if (text === "delete") {
+        setOpenDialog(true);
+        return (
+          <Dialog
+            open={openDialog}
+            close={handleCloseDialog}
+            title="Delete Clinic"
+            content={`Are you sure you want to delete ${selected.name}?`}
+            noFun={() => {}}
+            yesFun={() => {}}
+            noText="Cancel"
+            yesText="Confirm"
+          />
+        );
+      } else if (text === "block") {
+      }
+    } else {
+    }
+  }
+}
