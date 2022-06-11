@@ -18,6 +18,8 @@ const Clinics = () => {
     content: "",
     noText: "",
     yesText: "",
+    yesFun: () => {},
+    noFun: () => {},
   });
   const [openDialog, setOpenDialog] = React.useState(false);
 
@@ -44,6 +46,12 @@ const Clinics = () => {
           content: `Are you sure you want to delete ${selected.name} clinic`,
           noText: "Cancel",
           yesText: "Confirm",
+          yesFun: () => {
+            setOpenDialog(false);
+          },
+          noFun: () => {
+            setOpenDialog(false);
+          },
         });
       } else if (text === "block") {
       }
@@ -139,6 +147,8 @@ const Clinics = () => {
           content={dialogDetails.content}
           noText={dialogDetails.noText}
           yesText={dialogDetails.yesText}
+          yesFun={dialogDetails.yesFun}
+          noFun={dialogDetails.noFun}
         />
       )}
     </>
