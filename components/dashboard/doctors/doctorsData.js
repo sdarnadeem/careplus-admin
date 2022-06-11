@@ -21,8 +21,8 @@ var firstNameFilterParams = {
 
 export const columnDefs = [
   { field: "id" },
-  { field: "firstName", filterParams: firstNameFilterParams },
-  { field: "lastName", filterParams: firstNameFilterParams },
+  { field: "firstName", filter: true, filterParams: firstNameFilterParams },
+  { field: "lastName", filter: true, filterParams: firstNameFilterParams },
   { field: "age" },
 ];
 

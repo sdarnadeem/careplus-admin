@@ -1,29 +1,41 @@
-import React, { useMemo, useCallback, useRef } from "react";
+import React, { useState, useMemo, useCallback, useRef } from "react";
 import { AgGridReact } from "ag-grid-react";
+
+import { Button, Grid } from "@mui/material";
 
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 import { rowData, columnDefs } from "./doctorsData";
+import Dialog from "../../dialog/Dialog";
 
 const Doctors = () => {
+  const [selected, setSelected] = useState();
   const gridRef = useRef();
+  const [dialogDetails, setDialogDetails] = React.useState({
+    title: "",
+    content: "",
+    noText: "",
+    yesText: "",
+    yesFun: () => {},
+    noFun: () => {},
+  });
+  const [openDialog, setOpenDialog] = React.useState(false);
   columnDefs.checkboxSelection = () => true;
 
   const defaultColDef = useMemo(
     () => ({
       sortable: true,
-      filter: true,
     }),
     []
   );
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
-  const cellClickedListener = useCallback((event) => {
-    console.log("cellClicked", event);
-  }, []);
-
-  const buttonListener = useCallback((e) => {
-    gridRef.current.api.deselectAll();
+  const rowClickedListener = useCallback(({ data }) => {
+    console.log("cellClicked", data);
+    setSelected(data);
   }, []);
 
   const getRowClass = (params) => {
@@ -31,22 +43,114 @@ const Doctors = () => {
       return "my-shaded-effect";
     }
   };
+  const handleRowDoubleClicked = (row) => {
+    setOpenDialog(true);
+    setDialogDetails({
+      title: `${selected.firstName} ${selected.lastName}`,
+      content: `I'm  ${selected.firstName} ${selected.lastName}, I'm a heart sergon at BareHills lab. I've eight years of experience in the specified field.`,
+      yesFun: () => {
+        setOpenDialog(false);
+      },
+      noFun: () => {
+        setOpenDialog(false);
+      },
+    });
+  };
 
+  const handleButtonClick = (event) => {
+    console.log(event);
+    if (event === "delete") {
+      setOpenDialog(true);
+      setDialogDetails({
+        title: `Delete ${selected.firstName} ${selected.lastName} doctor`,
+        content: `Are you sure you want to delete ${selected.firstName} ${selected.lastName} doctor`,
+        noText: "Cancel",
+        yesText: "Confirm",
+        yesFun: () => {
+          setOpenDialog(false);
+        },
+        noFun: () => {
+          setOpenDialog(false);
+        },
+      });
+    }
+  };
   return (
-    <div className="ag-theme-alpine" style={{ height: "80vh", width: "100%" }}>
-      <AgGridReact
-        ref={gridRef}
-        rowData={rowData}
-        columnDefs={columnDefs}
-        defaultColDef={defaultColDef}
-        animateRows={true}
-        rowSelection="multiple"
-        onCellClicked={cellClickedListener}
-        rowClass="my-green-class"
-        getRowClass={getRowClass}
-        checkboxSelection={true}
-      ></AgGridReact>
-    </div>
+    <>
+      <Grid container spacing={2}>
+        <Grid item>
+          <Button
+            variant="outlined"
+            size="medium"
+            onClick={handleButtonClick.bind(null, "newDoctor")}
+          >
+            Add Doctor
+          </Button>
+        </Grid>
+
+        {selected && (
+          <>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="medium"
+                onClick={handleButtonClick.bind(null, "update")}
+              >
+                Update Doctor
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="medium"
+                onClick={handleButtonClick.bind(null, "delete")}
+              >
+                Delete Doctor
+              </Button>
+            </Grid>
+          </>
+        )}
+        <Grid item>
+          <Button
+            variant="outlined"
+            size="medium"
+            onClick={handleButtonClick.bind(null, "block")}
+          >
+            Reset Filters
+          </Button>
+        </Grid>
+      </Grid>
+      <div
+        className="ag-theme-alpine"
+        style={{ height: "80vh", width: "100%" }}
+      >
+        <AgGridReact
+          ref={gridRef}
+          rowData={rowData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultColDef}
+          animateRows={true}
+          rowSelection="multiple"
+          onRowClicked={rowClickedListener}
+          rowClass="my-green-class"
+          getRowClass={getRowClass}
+          checkboxSelection={true}
+          onRowDoubleClicked={handleRowDoubleClicked}
+        ></AgGridReact>
+      </div>
+      {openDialog && selected && (
+        <Dialog
+          open={openDialog}
+          handleClose={handleCloseDialog}
+          title={dialogDetails.title}
+          content={dialogDetails.content}
+          noText={dialogDetails.noText}
+          yesText={dialogDetails.yesText}
+          yesFun={dialogDetails.yesFun}
+          noFun={dialogDetails.noFun}
+        />
+      )}
+    </>
   );
 };
 
