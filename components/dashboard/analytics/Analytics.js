@@ -27,6 +27,7 @@ const Analytics = () => {
     () => ({
       sortable: true,
       resizable: true,
+      floatingFilter: true,
     }),
     []
   );

@@ -20,10 +20,20 @@ let textFilterParams = {
 };
 
 const clinicColumns = [
-  { field: "id", type: "number" },
+  { field: "id", filter: true, filterParams: textFilterParams },
   { field: "name", filter: true, filterParams: textFilterParams },
-  { field: "open" },
-  { field: "close" },
+  {
+    field: "open",
+    headerName: "Open Time",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "close",
+    headerName: "Close Time",
+    filter: true,
+    filterParams: textFilterParams,
+  },
   {
     field: "officeAddress",
     filter: true,
@@ -34,7 +44,7 @@ const clinicColumns = [
 
 const clinicRows = [
   {
-    id: 25,
+    id: "25",
     name: "Jon",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -42,7 +52,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 885,
+    id: "885",
     name: "Cersei",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -50,7 +60,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 78,
+    id: "78",
     name: "Jaime",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -58,7 +68,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 23,
+    id: "23",
     name: "Arya",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -66,7 +76,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 55,
+    id: "55",
     name: "Daenerys",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -74,7 +84,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 66,
+    id: "66",
     name: "Hommie",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -82,7 +92,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 77,
+    id: "77",
     name: "Ferrara",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -90,7 +100,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 88,
+    id: "88",
     name: "Rossini",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -98,7 +108,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 44,
+    id: "44",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -106,7 +116,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 78,
+    id: "78",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -114,7 +124,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 79,
+    id: "79",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -122,7 +132,7 @@ const clinicRows = [
     doctors: 12,
   },
   {
-    id: 29,
+    id: "29",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
@@ -131,79 +141,122 @@ const clinicRows = [
   },
 ];
 const doctorColumns = [
-  { key: "id", name: "ID", resizable: true },
-  { key: "firstName", name: "First Name", resizable: true, sortable: true },
-  { key: "lastName", name: "Last Name", resizable: true, sortable: true },
-  { key: "address", name: "Address", resizable: true, sortable: true },
+  {
+    field: "id",
+    headerName: "ID",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "lastName",
+    headerName: "Last Name",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "clinic",
+    headerName: "Clinic",
+    filter: true,
+    filterParams: textFilterParams,
+  },
 ];
 
 const doctorRows = [
-  { id: 44, firstName: "Jon", lastName: "Twain", address: "Sopore, Sagipora" },
   {
-    id: 990,
+    id: "44",
+    firstName: "Jon",
+    lastName: "Twain",
+    address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
+  },
+  {
+    id: "990",
     firstName: "Cersei",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 224,
+    id: "224",
     firstName: "Jaime",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 334,
+    id: "334",
     firstName: "Arya",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 440,
+    id: "440",
     firstName: "Daenerys",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 370,
+    id: "370",
     firstName: "Hommie",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 284,
+    id: "284",
     firstName: "Ferrara",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 775,
+    id: "775",
     firstName: "Rossini",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 980,
+    id: "980",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 354,
+    id: "354",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 79,
+    id: "79",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
   {
-    id: 29,
+    id: "29",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
+    clinic: "Bhatnagar",
   },
 ];
 const userColumns = [
