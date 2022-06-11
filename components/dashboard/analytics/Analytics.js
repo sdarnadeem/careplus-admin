@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Tabs, Tab, Button } from "@mui/material";
 
 import data from "./analyticsContent";
 import Dialog from "../../dialog/Dialog";
@@ -95,6 +95,9 @@ const Analytics = () => {
           <Tab label="This month Appointment" />
         </Tabs>
       </Box>
+      <Button variant="outlined" size="medium" onClick={clearFilters}>
+        Reset Filters
+      </Button>
       <div
         className="ag-theme-alpine"
         style={{ height: "80vh", width: "100%" }}

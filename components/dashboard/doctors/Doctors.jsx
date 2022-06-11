@@ -51,6 +51,7 @@ const Doctors = () => {
   const clearFilters = useCallback(() => {
     gridRef.current.api.setFilterModel(null);
   }, []);
+
   const handleRowDoubleClicked = (row) => {
     setOpenDialog(true);
     setDialogDetails({
