@@ -4,7 +4,8 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 
-import { columns, rows, showModal } from "./ClinicsData";
+import { columns, rows } from "./ClinicsData";
+import Dialog from "../../dialog/Dialog";
 
 import DataGrid from "react-data-grid";
 import { ConnectingAirportsOutlined } from "@mui/icons-material";
@@ -12,13 +13,17 @@ import { ConnectingAirportsOutlined } from "@mui/icons-material";
 const Clinics = () => {
   const [value, setValue] = React.useState(0);
   const [selected, setSelected] = React.useState();
+  const [dialogDetails, setDialogDetails] = React.useState({
+    title: "",
+    content: "",
+    noText: "",
+    yesText: "",
+  });
   const [openDialog, setOpenDialog] = React.useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  let dialogComponent;
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
@@ -29,14 +34,20 @@ const Clinics = () => {
   };
 
   const handleButtonClick = (text) => {
-    setOpenDialog(true);
-    dialogComponent = showModal(
-      text,
-      selected,
-      handleCloseDialog,
-      openDialog,
-      setOpenDialog
-    );
+    if (text === "newClinic") {
+    } else if (selected) {
+      setOpenDialog(true);
+      if (text === "update") {
+      } else if (text === "delete") {
+        setDialogDetails({
+          title: `Delete ${selected.name} clinic`,
+          content: `Are you sure you want to delete ${selected.name} clinic`,
+          noText: "Cancel",
+          yesText: "Confirm",
+        });
+      } else if (text === "block") {
+      }
+    }
   };
 
   return (
@@ -120,7 +131,16 @@ const Clinics = () => {
           selectedRows={(rows) => console.log(rows)}
         />
       </Box>
-      {dialogComponent}
+      {openDialog && selected && (
+        <Dialog
+          open={openDialog}
+          handleClose={handleCloseDialog}
+          title={dialogDetails.title}
+          content={dialogDetails.content}
+          noText={dialogDetails.noText}
+          yesText={dialogDetails.yesText}
+        />
+      )}
     </>
   );
 };
