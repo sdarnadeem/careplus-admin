@@ -260,23 +260,53 @@ const doctorRows = [
   },
 ];
 const userColumns = [
-  { key: "id", name: "ID", resizable: true },
-  { key: "firstName", name: "First Name", resizable: true, sortable: true },
-  { key: "lastName", name: "Last Name", resizable: true, sortable: true },
-  { key: "address", name: "Address", resizable: true, sortable: true },
   {
-    key: "appointmentDate",
-    name: "Appointment Date",
-    resizable: true,
-    sortable: true,
+    field: "id",
+    headerName: "ID",
+    filter: true,
+    filterParams: textFilterParams,
   },
-  { key: "doctor", name: "Doctor", resizable: true, sortable: true },
-  { key: "clinic", name: "Clinic", resizable: true, sortable: true },
+  {
+    field: "firstName",
+    headerName: "First Name",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "lastName",
+    headerName: "Last Name",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "appointmentDate",
+    headerName: "Appointment Date",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "doctor",
+    headerName: "Doctor",
+    filter: true,
+    filterParams: textFilterParams,
+  },
+  {
+    field: "clinic",
+    headerName: "Clinic",
+    filter: true,
+    filterParams: textFilterParams,
+  },
 ];
 
 const userRows = [
   {
-    id: 154,
+    id: "154",
     firstName: "ALbert",
     lastName: "Helski",
     address: "Sopore, Sagipora",
@@ -285,7 +315,7 @@ const userRows = [
     clinic: "Summer Hall",
   },
   {
-    id: 990,
+    id: "990",
     firstName: "Cersei",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -294,7 +324,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 224,
+    id: "224",
     firstName: "Jaime",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -303,7 +333,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 334,
+    id: "334",
     firstName: "Arya",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -312,7 +342,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 440,
+    id: "440",
     firstName: "Daenerys",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -321,7 +351,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 370,
+    id: "370",
     firstName: "Hommie",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -330,7 +360,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 284,
+    id: "284",
     firstName: "Ferrara",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -339,7 +369,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 775,
+    id: "775",
     firstName: "Rossini",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -348,7 +378,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 980,
+    id: "980",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -357,7 +387,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 354,
+    id: "354",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -366,7 +396,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 79,
+    id: "79",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -375,7 +405,7 @@ const userRows = [
     clinic: "Tripmax",
   },
   {
-    id: 29,
+    id: "29",
     firstName: "Harvey",
     lastName: "Twain",
     address: "Sopore, Sagipora",
@@ -401,69 +431,3 @@ const data = [
 ];
 
 export default data;
-
-export const rowData = [
-  {
-    id: 1,
-    lastName: "Snow",
-    firstName: "Jon",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 2,
-    lastName: "Lannister",
-    firstName: "Cersei",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 3,
-    lastName: "Lannister",
-    firstName: "Jaime",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 4,
-    lastName: "Stark",
-    firstName: "Arya",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 5,
-    lastName: "Targaryen",
-    firstName: "Daenerys",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 6,
-    lastName: "Melisandre",
-    firstName: "Yenni",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 7,
-    lastName: "Clifford",
-    firstName: "Ferrara",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 8,
-    lastName: "Frances",
-    firstName: "Rossini",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-  {
-    id: 9,
-    lastName: "Roxie",
-    firstName: "Harvey",
-    clinic: "Afar Labs",
-    address: "Sagipora Sopore",
-  },
-];
