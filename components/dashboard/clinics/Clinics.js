@@ -54,6 +54,18 @@ const Clinics = () => {
           },
         });
       } else if (text === "block") {
+        setDialogDetails({
+          title: `Block ${selected.name} clinic`,
+          content: `Are you sure you want to block ${selected.name} clinic`,
+          noText: "Cancel",
+          yesText: "Confirm",
+          yesFun: () => {
+            setOpenDialog(false);
+          },
+          noFun: () => {
+            setOpenDialog(false);
+          },
+        });
       }
     }
   };
