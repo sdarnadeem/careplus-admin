@@ -9,7 +9,6 @@ import { columns, rows } from "./ClinicsData";
 import Dialog from "../../dialog/Dialog";
 
 import DataGrid from "react-data-grid";
-import { ConnectingAirportsOutlined } from "@mui/icons-material";
 
 const Clinics = () => {
   const router = useRouter();

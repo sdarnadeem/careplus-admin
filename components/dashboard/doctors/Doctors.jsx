@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useCallback, useRef } from "react";
 import { AgGridReact } from "ag-grid-react";
 
+import { useRouter } from "next/router";
+
 import { Button, Grid } from "@mui/material";
 
 import "ag-grid-community/dist/styles/ag-grid.css";
@@ -10,6 +12,7 @@ import { rowData, columnDefs } from "./doctorsData";
 import Dialog from "../../dialog/Dialog";
 
 const Doctors = () => {
+  const router = useRouter();
   const [selected, setSelected] = useState();
   const gridRef = useRef();
   const [dialogDetails, setDialogDetails] = React.useState({
@@ -62,7 +65,10 @@ const Doctors = () => {
   };
 
   const handleButtonClick = (event) => {
-    console.log(event);
+    if (event === "newDoctor") {
+      router.push("/admin/update/doctor");
+    }
+
     if (event === "delete") {
       setOpenDialog(true);
       setDialogDetails({
