@@ -59,7 +59,7 @@ const Clinics = () => {
       noText: "Delete",
       yesText: "Know More",
       yesFun: () => {
-        router.push(`admin/doctor/${selected.id}`);
+        router.push(`admin/clinic/${selected.id}`);
         setOpenDialog(false);
       },
       noFun: () => {
