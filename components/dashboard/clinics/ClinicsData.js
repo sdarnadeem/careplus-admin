@@ -1,98 +1,135 @@
-import Dialog from "../../dialog/Dialog";
+let firstNameFilterParams = {
+  filterOptions: ["contains", "notContains"],
+  textFormatter: (r) => {
+    if (r == null) return null;
+    return r
+      .toLowerCase()
+      .replace(/[àáâãäå]/g, "a")
+      .replace(/æ/g, "ae")
+      .replace(/ç/g, "c")
+      .replace(/[èéêë]/g, "e")
+      .replace(/[ìíîï]/g, "i")
+      .replace(/ñ/g, "n")
+      .replace(/[òóôõö]/g, "o")
+      .replace(/œ/g, "oe")
+      .replace(/[ùúûü]/g, "u")
+      .replace(/[ýÿ]/g, "y");
+  },
+  debounceMs: 200,
+  suppressAndOrCondition: true,
+};
 
 export const columns = [
-  { key: "id", name: "ID", resizable: true },
-  { key: "name", name: "Name", resizable: true, sortable: true },
-  { key: "open", name: "Open Time", resizable: true, sortable: true },
-  { key: "close", name: "Close Time", resizable: true, sortable: true },
   {
-    key: "officeAddress",
-    name: "Office Address",
-    resizable: true,
-    sortable: true,
+    field: "id",
+    headerName: "ID",
+    filter: true,
+    filterParams: firstNameFilterParams,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    filter: true,
+    filterParams: firstNameFilterParams,
+  },
+  {
+    field: "open",
+    headerName: "Open Time",
+    filter: true,
+    filterParams: firstNameFilterParams,
+  },
+  {
+    field: "close",
+    headerName: "Close Time",
+    filter: true,
+    filterParams: firstNameFilterParams,
+  },
+  {
+    field: "officeAddress",
+    headerName: "Office Address",
   },
 ];
 
 export const rows = [
   {
-    id: 25,
+    id: "25",
     name: "Jon",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 885,
+    id: "885",
     name: "Cersei",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 78,
+    id: "78",
     name: "Jaime",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 23,
+    id: "23",
     name: "Arya",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 55,
+    id: "55",
     name: "Daenerys",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 66,
+    id: "66",
     name: "Hommie",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 77,
+    id: "77",
     name: "Ferrara",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 88,
+    id: "88",
     name: "Rossini",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 44,
+    id: "44",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 78,
+    id: "78",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 79,
+    id: "79",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
   },
   {
-    id: 29,
+    id: "29",
     name: "Harvey",
     open: "09:00 AM",
     close: "05:00 PM",

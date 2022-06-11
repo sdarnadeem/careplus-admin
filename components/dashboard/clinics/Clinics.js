@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useCallback, useRef } from "react";
 import { Box, Tabs, Tab, Grid, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -7,10 +7,10 @@ import { useRouter } from "next/router";
 
 import { columns, rows } from "./ClinicsData";
 import Dialog from "../../dialog/Dialog";
-
-import DataGrid from "react-data-grid";
+import { AgGridReact } from "ag-grid-react";
 
 const Clinics = () => {
+  const gridRef = useRef();
   const router = useRouter();
   const [value, setValue] = React.useState(0);
   const [selected, setSelected] = React.useState();
@@ -28,12 +28,48 @@ const Clinics = () => {
     setValue(newValue);
   };
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
+  const defaultColDef = useMemo(
+    () => ({
+      sortable: true,
+      resizable: true,
+      floatingFilter: true,
+    }),
+    []
+  );
+  const rowClickedListener = useCallback(({ data }) => {
+    console.log("cellClicked", data);
+    setSelected(data);
+  }, []);
+
+  const getRowClass = (params) => {
+    if (params.node.rowIndex % 2 === 0) {
+      return "my-shaded-effect";
+    }
   };
 
-  const handleRowClick = (row) => {
-    setSelected(row);
+  const clearFilters = useCallback(() => {
+    gridRef.current.api.setFilterModel(null);
+  }, []);
+
+  const handleRowDoubleClicked = (row) => {
+    setOpenDialog(true);
+    setDialogDetails({
+      title: `${selected.firstName} ${selected.lastName}`,
+      content: `I'm  ${selected.firstName} ${selected.lastName}, I'm a heart sergon at BareHills lab. I've eight years of experience in the specified field.`,
+      noText: "Delete",
+      yesText: "Know More",
+      yesFun: () => {
+        router.push(`admin/doctor/${selected.id}`);
+        setOpenDialog(false);
+      },
+      noFun: () => {
+        setOpenDialog(false);
+      },
+    });
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   const handleButtonClick = (text) => {
@@ -76,7 +112,7 @@ const Clinics = () => {
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item>
+        {/* <Grid item>
           <TextField
             size="small"
             elevation={2}
@@ -91,7 +127,7 @@ const Clinics = () => {
             }}
             variant="outlined"
           />
-        </Grid>
+        </Grid> */}
         <Grid item>
           <Button
             variant="outlined"
@@ -132,6 +168,11 @@ const Clinics = () => {
             </Grid>
           </>
         )}
+        <Grid item>
+          <Button variant="outlined" size="medium" onClick={clearFilters}>
+            Clear Filters
+          </Button>
+        </Grid>
       </Grid>
       <Box
         sx={{
@@ -144,16 +185,25 @@ const Clinics = () => {
           <Tab label="Online Clinics" />
           <Tab label="Blocks Clinics" />
         </Tabs>
-
-        <DataGrid
-          style={{ height: "100vh", marginTop: "30px" }}
-          columns={columns}
-          rows={rows}
-          className="rdg-light fill-grid"
-          onRowClick={handleRowClick}
-          selectedRows={(rows) => console.log(rows)}
-        />
       </Box>
+      <div
+        className="ag-theme-alpine"
+        style={{ height: "80vh", width: "100%" }}
+      >
+        <AgGridReact
+          ref={gridRef}
+          rowData={rows}
+          columnDefs={columns}
+          defaultColDef={defaultColDef}
+          animateRows={true}
+          rowSelection="multiple"
+          onRowClicked={rowClickedListener}
+          rowClass="my-green-class"
+          getRowClass={getRowClass}
+          checkboxSelection={true}
+          onRowDoubleClicked={handleRowDoubleClicked}
+        ></AgGridReact>
+      </div>
       {openDialog && selected && (
         <Dialog
           open={openDialog}
