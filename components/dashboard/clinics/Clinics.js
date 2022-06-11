@@ -67,33 +67,37 @@ const Clinics = () => {
             Add Clinic
           </Button>
         </Grid>
-        <Grid item>
-          <Button
-            variant="outlined"
-            size="medium"
-            onClick={handleButtonClick.bind(null, "update")}
-          >
-            Update Clinic
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button
-            variant="outlined"
-            size="medium"
-            onClick={handleButtonClick.bind(null, "delete")}
-          >
-            Delete Clinic
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button
-            variant="outlined"
-            size="medium"
-            onClick={handleButtonClick.bind(null, "block")}
-          >
-            Block Clinic
-          </Button>
-        </Grid>
+        {selected && (
+          <>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="medium"
+                onClick={handleButtonClick.bind(null, "update")}
+              >
+                Update Clinic
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="medium"
+                onClick={handleButtonClick.bind(null, "delete")}
+              >
+                Delete Clinic
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="medium"
+                onClick={handleButtonClick.bind(null, "block")}
+              >
+                Block Clinic
+              </Button>
+            </Grid>
+          </>
+        )}
       </Grid>
       <Box
         sx={{
