@@ -29,6 +29,7 @@ const Doctors = () => {
   const defaultColDef = useMemo(
     () => ({
       sortable: true,
+      resizable: true,
     }),
     []
   );
