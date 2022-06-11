@@ -1,21 +1,35 @@
-export const columnDefs = [
-  { field: "id" },
-  { field: "firstName", filter: true, filterParams: firstNameFilterParams },
-  { field: "lastName", filter: true, filterParams: firstNameFilterParams },
-  { field: "clinic", filter: true, filterParams: firstNameFilterParams },
-  { field: "address", filter: true, filterParams: firstNameFilterParams },
-];
+let textFilterParams = {
+  filterOptions: ["contains", "notContains"],
+  textFormatter: (r) => {
+    if (r == null) return null;
+    return r
+      .toLowerCase()
+      .replace(/[àáâãäå]/g, "a")
+      .replace(/æ/g, "ae")
+      .replace(/ç/g, "c")
+      .replace(/[èéêë]/g, "e")
+      .replace(/[ìíîï]/g, "i")
+      .replace(/ñ/g, "n")
+      .replace(/[òóôõö]/g, "o")
+      .replace(/œ/g, "oe")
+      .replace(/[ùúûü]/g, "u")
+      .replace(/[ýÿ]/g, "y");
+  },
+  debounceMs: 200,
+  suppressAndOrCondition: true,
+};
+
 const clinicColumns = [
-  { field: "id" },
-  { field: "name" },
+  { field: "id", type: "number" },
+  { field: "name", filter: true, filterParams: textFilterParams },
   { field: "open" },
   { field: "close" },
   {
-    key: "officeAddress",
-    name: "Office Address",
-    resizable: true,
-    sortable: true,
+    field: "officeAddress",
+    filter: true,
+    filterParams: textFilterParams,
   },
+  { field: "doctors" },
 ];
 
 const clinicRows = [
@@ -25,6 +39,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 885,
@@ -32,6 +47,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 78,
@@ -39,6 +55,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 23,
@@ -46,6 +63,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 55,
@@ -53,6 +71,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 66,
@@ -60,6 +79,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 77,
@@ -67,6 +87,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 88,
@@ -74,6 +95,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 44,
@@ -81,6 +103,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 78,
@@ -88,6 +111,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 79,
@@ -95,6 +119,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
   {
     id: 29,
@@ -102,6 +127,7 @@ const clinicRows = [
     open: "09:00 AM",
     close: "05:00 PM",
     officeAddress: "27 Houston California",
+    doctors: 12,
   },
 ];
 const doctorColumns = [
@@ -322,27 +348,6 @@ const data = [
 ];
 
 export default data;
-
-let firstNameFilterParams = {
-  filterOptions: ["contains", "notContains"],
-  textFormatter: (r) => {
-    if (r == null) return null;
-    return r
-      .toLowerCase()
-      .replace(/[àáâãäå]/g, "a")
-      .replace(/æ/g, "ae")
-      .replace(/ç/g, "c")
-      .replace(/[èéêë]/g, "e")
-      .replace(/[ìíîï]/g, "i")
-      .replace(/ñ/g, "n")
-      .replace(/[òóôõö]/g, "o")
-      .replace(/œ/g, "oe")
-      .replace(/[ùúûü]/g, "u")
-      .replace(/[ýÿ]/g, "y");
-  },
-  debounceMs: 200,
-  suppressAndOrCondition: true,
-};
 
 export const rowData = [
   {
