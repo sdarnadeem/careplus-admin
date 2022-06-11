@@ -1,9 +1,9 @@
 import React from "react";
 
 import Grid from "@mui/material/Grid";
-import LeftSide from "../components/dashboard/LeftSide";
-import RightSide from "../components/dashboard/RightSide";
-import MiddleSide from "../components/dashboard/MiddleSide";
+import LeftSide from "../../components/dashboard/LeftSide";
+import RightSide from "../../components/dashboard/RightSide";
+import MiddleSide from "../../components/dashboard/MiddleSide";
 
 const Admin = () => {
   return (
