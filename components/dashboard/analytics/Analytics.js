@@ -7,6 +7,7 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import { Box, Tabs, Tab } from "@mui/material";
 
 import data from "./analyticsContent";
+import Dialog from "../../dialog/Dialog";
 
 const Analytics = () => {
   const [value, setValue] = React.useState(0);
@@ -49,6 +50,7 @@ const Analytics = () => {
   const clearFilters = useCallback(() => {
     gridRef.current.api.setFilterModel(null);
   }, []);
+
   const handleRowDoubleClicked = (row) => {
     setOpenDialog(true);
     setDialogDetails({
@@ -57,7 +59,20 @@ const Analytics = () => {
       noText: "Delete",
       yesText: "Know More",
       yesFun: () => {
-        router.push(`admin/doctor/${selected.id}`);
+        let url;
+        if (value === 0) {
+          url = `admin/clinic/${selected.id}`;
+        }
+        if (value == 1) {
+          url = `admin/doctor/${selected.id}`;
+        }
+        if (value == 2) {
+          url = `admin/user/${selected.id}`;
+        }
+        if (value == 3) {
+          url = `admin/appointment/${selected.id}`;
+        }
+        router.push(url);
         setOpenDialog(false);
       },
       noFun: () => {
@@ -97,6 +112,18 @@ const Analytics = () => {
           onRowDoubleClicked={handleRowDoubleClicked}
         ></AgGridReact>
       </div>
+      {openDialog && selected && (
+        <Dialog
+          open={openDialog}
+          handleClose={handleCloseDialog}
+          title={dialogDetails.title}
+          content={dialogDetails.content}
+          noText={dialogDetails.noText}
+          yesText={dialogDetails.yesText}
+          yesFun={dialogDetails.yesFun}
+          noFun={dialogDetails.noFun}
+        />
+      )}
     </>
   );
 };
