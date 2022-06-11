@@ -43,6 +43,10 @@ const Doctors = () => {
       return "my-shaded-effect";
     }
   };
+
+  const clearFilters = useCallback(() => {
+    gridRef.current.api.setFilterModel(null);
+  }, []);
   const handleRowDoubleClicked = (row) => {
     setOpenDialog(true);
     setDialogDetails({
@@ -111,11 +115,7 @@ const Doctors = () => {
           </>
         )}
         <Grid item>
-          <Button
-            variant="outlined"
-            size="medium"
-            onClick={handleButtonClick.bind(null, "block")}
-          >
+          <Button variant="outlined" size="medium" onClick={clearFilters}>
             Reset Filters
           </Button>
         </Grid>
