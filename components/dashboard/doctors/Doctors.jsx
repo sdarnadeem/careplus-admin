@@ -69,6 +69,10 @@ const Doctors = () => {
       router.push("/admin/update/doctor");
     }
 
+    if (event === "update") {
+      router.push(`/admin/update/doctor?id=${selected.id}`);
+    }
+
     if (event === "delete") {
       setOpenDialog(true);
       setDialogDetails({
