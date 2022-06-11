@@ -38,10 +38,11 @@ const Clinics = () => {
 
   const handleButtonClick = (text) => {
     if (text === "newClinic") {
-      router.push("admin/update/clinic");
+      router.push("admin/clinic/update");
     } else if (selected) {
       setOpenDialog(true);
       if (text === "update") {
+        router.push(`admin/clinic/update?id=${selected.id}`);
       } else if (text === "delete") {
         setDialogDetails({
           title: `Delete ${selected.name} clinic`,

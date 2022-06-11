@@ -55,7 +55,10 @@ const Doctors = () => {
     setDialogDetails({
       title: `${selected.firstName} ${selected.lastName}`,
       content: `I'm  ${selected.firstName} ${selected.lastName}, I'm a heart sergon at BareHills lab. I've eight years of experience in the specified field.`,
+      noText: "Delete",
+      yesText: "Know More",
       yesFun: () => {
+        router.push(`admin/doctor/${selected.id}`);
         setOpenDialog(false);
       },
       noFun: () => {
@@ -66,11 +69,11 @@ const Doctors = () => {
 
   const handleButtonClick = (event) => {
     if (event === "newDoctor") {
-      router.push("/admin/update/doctor");
+      router.push("/admin/doctor/update");
     }
 
-    if (event === "update") {
-      router.push(`/admin/update/doctor?id=${selected.id}`);
+    if (selected && event === "update") {
+      router.push(`/admin/doctor/update?id=${selected.id}`);
     }
 
     if (event === "delete") {
