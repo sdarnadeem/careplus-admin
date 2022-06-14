@@ -3,15 +3,14 @@ import React, { useMemo, useCallback, useRef } from "react";
 import { Box, Tab, Tabs, Grid, Button } from "@mui/material";
 import { AgGridReact } from "ag-grid-react";
 
-import { cols, ros } from "./feesData";
+import data from "./feesData";
 import Dialog from "../../dialog/Dialog";
 
 const Fees = () => {
   const [value, setValue] = React.useState(0);
   const gridRef = useRef();
-  const [columns] = React.useState(cols);
-  const [rows] = React.useState(ros);
-  console.log("hello");
+  const [columns, setColumns] = React.useState(data[0].columns);
+  const [rows, setRows] = React.useState(data[0].rows);
 
   const [selected, setSelected] = React.useState();
   const [dialogDetails, setDialogDetails] = React.useState({
@@ -26,7 +25,8 @@ const Fees = () => {
 
   const handleChange = useCallback((event, newValue) => {
     setValue(newValue);
-    console.log(newValue);
+    setRows(data[newValue].rows);
+    setColumns(data[newValue].columns);
   }, []);
 
   const defaultColDef = useMemo(

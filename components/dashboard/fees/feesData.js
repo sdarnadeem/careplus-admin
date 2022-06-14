@@ -19,7 +19,7 @@ let filterTextParams = {
   suppressAndOrCondition: true,
 };
 
-export const cols = [
+export const clinicColumns = [
   {
     field: "id",
     headerName: "ID",
@@ -52,13 +52,14 @@ export const cols = [
   },
 ];
 
-export const ros = [
+export const clinicRows = [
   {
     id: "25",
     name: "Jon",
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "885",
@@ -66,6 +67,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "78",
@@ -73,6 +75,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "23",
@@ -80,6 +83,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "55",
@@ -87,6 +91,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "66",
@@ -94,6 +99,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "77",
@@ -101,6 +107,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "88",
@@ -108,6 +115,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "44",
@@ -115,6 +123,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "78",
@@ -122,6 +131,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "79",
@@ -129,6 +139,7 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
   {
     id: "29",
@@ -136,5 +147,156 @@ export const ros = [
     fees: "$14",
     validFor: "14 Days",
     lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
   },
 ];
+export const doctorColumns = [
+  {
+    field: "id",
+    headerName: "ID",
+    filter: true,
+    filterParams: filterTextParams,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    filter: true,
+    filterParams: filterTextParams,
+  },
+  {
+    field: "fees",
+    headerName: "Fees",
+    filter: true,
+    filterParams: filterTextParams,
+  },
+  {
+    field: "validFor",
+    headerName: "Valid For",
+    filter: true,
+    filterParams: filterTextParams,
+  },
+  {
+    field: "lastUpdated",
+    headerName: "Last Updated",
+    filter: true,
+    filterParams: filterTextParams,
+  },
+  {
+    field: "clinic",
+    headerName: "Clinic",
+    filter: true,
+    filterParams: filterTextParams,
+  },
+];
+
+export const doctorRows = [
+  {
+    id: "25",
+    name: "Adren",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "885",
+    name: "Putin",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "78",
+    name: "Raees",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "23",
+    name: "Bairstow",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "55",
+    name: "Daenerys",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "66",
+    name: "Hommie",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "77",
+    name: "Ferrara",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "88",
+    name: "Rossini",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "44",
+    name: "Harvey",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "78",
+    name: "Harvey",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "79",
+    name: "Harvey",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+  {
+    id: "29",
+    name: "Harvey",
+    fees: "$14",
+    validFor: "14 Days",
+    lastUpdated: "14 June 2022",
+    clinic: "Tripmax",
+  },
+];
+
+const data = [
+  {
+    rows: clinicRows,
+    columns: clinicColumns,
+  },
+  {
+    rows: doctorRows,
+    columns: doctorColumns,
+  },
+];
+
+export default data;
