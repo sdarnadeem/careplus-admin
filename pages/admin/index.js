@@ -8,7 +8,11 @@ import MiddleSide from "../../components/dashboard/MiddleSide";
 const Admin = () => {
   return (
     <>
-      <div style={{ width: "100%", height: "70px" }}>Navbar</div>
+      <div
+        style={{ width: "100%", height: "70px", outline: "1px solid green" }}
+      >
+        Navbar
+      </div>
       <Grid container spacing={5} padding={3}>
         <Grid item xs={2}>
           <LeftSide />

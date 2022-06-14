@@ -10,7 +10,13 @@ const linkStyles = {
 
 export default function Home() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", margin: "3rem" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        margin: "3rem",
+      }}
+    >
       <Link style={linkStyles} href="/admin">
         Admin
       </Link>

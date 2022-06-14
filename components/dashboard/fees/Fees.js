@@ -97,7 +97,7 @@ const Fees = () => {
   }, [selected]);
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item height="100%" alignItems="center">
           <Button variant="outlined" size="small" onClick={clearFilters}>
             Reset Filters
