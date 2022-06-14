@@ -34,7 +34,7 @@ export const columns = [
   },
   {
     field: "fees",
-    headerName: "Fees",
+    headerName: "Commission",
     filter: true,
     filterParams: filterTextParams,
   },

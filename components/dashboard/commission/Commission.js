@@ -95,20 +95,35 @@ const Commission = () => {
   }, [selected]);
   return (
     <>
-      <Grid container>
+      <Grid container spacing={1}>
         <Grid item height="100%" alignItems="center">
           <Button variant="outlined" size="small" onClick={clearFilters}>
             Reset Filters
           </Button>
         </Grid>
 
-        {/* {selected && (
-          <Grid item>
-            <Button variant="outlined" size="small" onClick={handleButtonClick}>
-              Update Clinic
-            </Button>
-          </Grid>
-        )} */}
+        {selected && (
+          <>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={handleButtonClick}
+              >
+                Update Commission
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={handleButtonClick}
+              >
+                Delete Commission
+              </Button>
+            </Grid>
+          </>
+        )}
       </Grid>
       <Box
         sx={{
