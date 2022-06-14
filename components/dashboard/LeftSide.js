@@ -7,11 +7,33 @@ import Link from "next/link";
 
 import content from "./leftSideContent";
 import c from "./LeftSide.module.css";
+import { Typography } from "@mui/material";
 
 const LeftSide = () => {
   const { query } = useRouter();
+  const router = useRouter();
 
   const activeTab = query.tab === undefined ? "dashboard" : query.tab;
+
+  const handleLogout = () => {
+    router.replace("/");
+  };
+
+  const logout = (slug, text) => {
+    if (slug === "logout") {
+      return (
+        <Typography
+          sx={{ cursor: "pointer" }}
+          onClick={handleLogout}
+          variant="body"
+        >
+          {text}
+        </Typography>
+      );
+    } else {
+      return "";
+    }
+  };
 
   const renderItem = (id, Icon, text, slug) => {
     return (
@@ -23,7 +45,8 @@ const LeftSide = () => {
         key={id}
       >
         <Icon />
-        <Link href={`?tab=${slug}`}>{text}</Link>
+        {logout(slug, text)}
+        {slug !== "logout" && <Link href={`?tab=${slug}`}>{text}</Link>}
       </Stack>
     );
   };
