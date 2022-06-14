@@ -11,6 +11,7 @@ const Fees = () => {
   const gridRef = useRef();
   const [columns] = React.useState(cols);
   const [rows] = React.useState(ros);
+  console.log("hello");
 
   const [selected, setSelected] = React.useState();
   const [dialogDetails, setDialogDetails] = React.useState({
@@ -23,10 +24,9 @@ const Fees = () => {
   });
   const [openDialog, setOpenDialog] = React.useState(false);
 
-  const handleChange = useCallback(() => {
-    (event, newValue) => {
-      setValue(newValue);
-    };
+  const handleChange = useCallback((event, newValue) => {
+    setValue(newValue);
+    console.log(newValue);
   }, []);
 
   const defaultColDef = useMemo(
@@ -52,13 +52,13 @@ const Fees = () => {
     gridRef.current.api.setFilterModel(null);
   }, []);
 
-  const handleRowDoubleClicked = useCallback(() => {
+  const handleRowDoubleClicked = useCallback(
     (row) => {
       setOpenDialog(true);
       setDialogDetails({
         title: `${selected.name}`,
-        content: `I'm  ${selected.name}, I'm a heart sergon at BareHills lab. I've eight years of experience in the specified field.`,
-        noText: "Delete",
+        content: ` ${selected.name} is a popular general medicine clininc based in the west coast`,
+        noText: "Update",
         yesText: "Know More",
         yesFun: () => {
           router.push(`admin/clinic/${selected.id}`);
@@ -68,18 +68,22 @@ const Fees = () => {
           setOpenDialog(false);
         },
       });
-    };
-  }, []);
+    },
+    [selected]
+  );
 
   const handleCloseDialog = useCallback(() => {
     setOpenDialog(false);
   }, []);
 
   const handleButtonClick = useCallback(() => {
+    console.log("selected", selected);
     if (selected) {
+      setOpenDialog(true);
+      console.log(selected);
       setDialogDetails({
         title: `Update ${selected.name} clinic`,
-        content: `Are you sure you want to delete ${selected.name} clinic`,
+        content: `Are you sure you want to update ${selected.name} clinic`,
         noText: "Cancel",
         yesText: "Confirm",
         yesFun: () => {
