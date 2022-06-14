@@ -30,7 +30,6 @@ const Doctors = () => {
     () => ({
       sortable: true,
       resizable: true,
-      floatingFilter: true,
     }),
     []
   );
