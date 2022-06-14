@@ -92,11 +92,17 @@ const Analytics = () => {
           <Tab label="Active Doctor" />
           <Tab label="Active User" />
           <Tab label="This month Appointment" />
+          <Button
+            sx={{ marginLeft: "auto" }}
+            variant="outlined"
+            size="small"
+            onClick={clearFilters}
+          >
+            Reset Filters
+          </Button>
         </Tabs>
       </Box>
-      <Button variant="outlined" size="medium" onClick={clearFilters}>
-        Reset Filters
-      </Button>
+
       <div
         className="ag-theme-alpine"
         style={{ height: "80vh", width: "100%" }}
