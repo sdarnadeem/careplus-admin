@@ -97,6 +97,21 @@ const Fees = () => {
   }, [selected]);
   return (
     <>
+      <Grid container spacing={2}>
+        <Grid item height="100%" alignItems="center">
+          <Button variant="outlined" size="small" onClick={clearFilters}>
+            Reset Filters
+          </Button>
+        </Grid>
+
+        {selected && (
+          <Grid item>
+            <Button variant="outlined" size="small" onClick={handleButtonClick}>
+              Update Clinic
+            </Button>
+          </Grid>
+        )}
+      </Grid>
       <Box
         sx={{
           width: "100%",
@@ -106,18 +121,9 @@ const Fees = () => {
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Clinics" />
           <Tab label="Doctor" />
-          {selected && (
-            <Button
-              sx={{ marginLeft: "auto" }}
-              variant="outlined"
-              size="small"
-              onClick={handleButtonClick}
-            >
-              Update Clinic
-            </Button>
-          )}
         </Tabs>
       </Box>
+
       <div
         className="ag-theme-alpine"
         style={{ height: "80vh", width: "100%" }}

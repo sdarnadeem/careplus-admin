@@ -151,7 +151,7 @@ const Doctors = () => {
           getRowClass={getRowClass}
           checkboxSelection={true}
           onRowDoubleClicked={handleRowDoubleClicked}
-        ></AgGridReact>
+        />
       </div>
       {openDialog && selected && (
         <Dialog
