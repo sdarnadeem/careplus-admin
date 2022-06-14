@@ -6,6 +6,8 @@ import Analytics from "./analytics/Analytics";
 import Clinics from "./clinics/Clinics";
 import Fees from "./fees/Fees.js";
 import Payments from "./payments/Payments.js";
+import Commission from "./commission/Commission";
+import AdminProfile from "./adminProfile/AdminProfile.js";
 
 import { Stack } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -27,6 +29,10 @@ const MiddleSide = () => {
         return <Fees />;
       case "payments":
         return <Payments />;
+      case "commission":
+        return <Commission />;
+      case "admin-profile":
+        return <AdminProfile />;
       default:
         return <Analytics />;
     }
