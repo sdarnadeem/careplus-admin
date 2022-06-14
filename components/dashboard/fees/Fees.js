@@ -3,12 +3,14 @@ import React, { useMemo, useCallback, useRef } from "react";
 import { Box, Tab, Tabs, Grid, Button } from "@mui/material";
 import { AgGridReact } from "ag-grid-react";
 
-import { columns, rows } from "./feesData";
+import { cols, ros } from "./feesData";
 import Dialog from "../../dialog/Dialog";
 
 const Fees = () => {
   const [value, setValue] = React.useState(0);
   const gridRef = useRef();
+  const [columns] = React.useState(cols);
+  const [rows] = React.useState(ros);
 
   const [selected, setSelected] = React.useState();
   const [dialogDetails, setDialogDetails] = React.useState({
@@ -21,9 +23,11 @@ const Fees = () => {
   });
   const [openDialog, setOpenDialog] = React.useState(false);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const handleChange = useCallback(() => {
+    (event, newValue) => {
+      setValue(newValue);
+    };
+  }, []);
 
   const defaultColDef = useMemo(
     () => ({
@@ -48,29 +52,45 @@ const Fees = () => {
     gridRef.current.api.setFilterModel(null);
   }, []);
 
-  const handleRowDoubleClicked = (row) => {
-    setOpenDialog(true);
-    setDialogDetails({
-      title: `${selected.name}`,
-      content: `I'm  ${selected.name}, I'm a heart sergon at BareHills lab. I've eight years of experience in the specified field.`,
-      noText: "Delete",
-      yesText: "Know More",
-      yesFun: () => {
-        router.push(`admin/clinic/${selected.id}`);
-        setOpenDialog(false);
-      },
-      noFun: () => {
-        setOpenDialog(false);
-      },
-    });
-  };
+  const handleRowDoubleClicked = useCallback(() => {
+    (row) => {
+      setOpenDialog(true);
+      setDialogDetails({
+        title: `${selected.name}`,
+        content: `I'm  ${selected.name}, I'm a heart sergon at BareHills lab. I've eight years of experience in the specified field.`,
+        noText: "Delete",
+        yesText: "Know More",
+        yesFun: () => {
+          router.push(`admin/clinic/${selected.id}`);
+          setOpenDialog(false);
+        },
+        noFun: () => {
+          setOpenDialog(false);
+        },
+      });
+    };
+  }, []);
 
-  const handleCloseDialog = () => {
+  const handleCloseDialog = useCallback(() => {
     setOpenDialog(false);
-  };
+  }, []);
 
-  const handleButtonClick = () => {};
-
+  const handleButtonClick = useCallback(() => {
+    if (selected) {
+      setDialogDetails({
+        title: `Update ${selected.name} clinic`,
+        content: `Are you sure you want to delete ${selected.name} clinic`,
+        noText: "Cancel",
+        yesText: "Confirm",
+        yesFun: () => {
+          setOpenDialog(false);
+        },
+        noFun: () => {
+          setOpenDialog(false);
+        },
+      });
+    }
+  }, [selected]);
   return (
     <>
       <Box
@@ -82,9 +102,16 @@ const Fees = () => {
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Clinics" />
           <Tab label="Doctor" />
-          <Button variant="outlined" size="small" onClick={handleButtonClick}>
-            Update Clinic
-          </Button>
+          {selected && (
+            <Button
+              sx={{ marginLeft: "auto" }}
+              variant="outlined"
+              size="small"
+              onClick={handleButtonClick}
+            >
+              Update Clinic
+            </Button>
+          )}
         </Tabs>
       </Box>
       <div

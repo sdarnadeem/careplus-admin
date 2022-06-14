@@ -1,4 +1,4 @@
-let firstNameFilterParams = {
+let filterTextParams = {
   filterOptions: ["contains", "notContains"],
   textFormatter: (r) => {
     if (r == null) return null;
@@ -24,25 +24,25 @@ export const columns = [
     field: "id",
     headerName: "ID",
     filter: true,
-    filterParams: firstNameFilterParams,
+    filterParams: filterTextParams,
   },
   {
     field: "name",
     headerName: "Name",
     filter: true,
-    filterParams: firstNameFilterParams,
+    filterParams: filterTextParams,
   },
   {
     field: "open",
     headerName: "Open Time",
     filter: true,
-    filterParams: firstNameFilterParams,
+    filterParams: filterTextParams,
   },
   {
     field: "close",
     headerName: "Close Time",
     filter: true,
-    filterParams: firstNameFilterParams,
+    filterParams: filterTextParams,
   },
   {
     field: "officeAddress",
