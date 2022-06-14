@@ -32,7 +32,6 @@ const Clinics = () => {
     () => ({
       sortable: true,
       resizable: true,
-      floatingFilter: true,
     }),
     []
   );
