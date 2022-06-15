@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid, Button, Typography, Divider } from "@mui/material";
+import { Grid, Button, Typography, Divider, Avatar } from "@mui/material";
 
 const AdminProfile = () => {
   return (
@@ -23,6 +23,27 @@ const AdminProfile = () => {
         </Grid>
       </Grid>
       <Divider />
+      <Grid container>
+        <Grid item>
+          <Avatar
+            alt="Remy Sharp"
+            src="https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            sx={{ width: 100, height: 100, marginRight: "20px" }}
+          />
+        </Grid>
+        <Grid>
+          <Grid item container>
+            <Typography variant="h4" component="h6">
+              Remy Sharp
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body2" component="p">
+              CEO
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   );
 };
