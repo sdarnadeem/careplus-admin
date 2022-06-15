@@ -98,7 +98,7 @@ const Commission = () => {
       <Grid container spacing={1}>
         <Grid item height="100%" alignItems="center">
           <Button variant="outlined" size="small" onClick={clearFilters}>
-            Reset Filters
+            Add Commission
           </Button>
         </Grid>
 
@@ -124,6 +124,11 @@ const Commission = () => {
             </Grid>
           </>
         )}
+        <Grid item height="100%" alignItems="center">
+          <Button variant="outlined" size="small" onClick={clearFilters}>
+            Reset Filters
+          </Button>
+        </Grid>
       </Grid>
       <Box
         sx={{

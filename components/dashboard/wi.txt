@@ -1,51 +1,30 @@
-implement clinic information and link to clinic details page
-implement filters in clinic component
-implement filters in doctor component
-
-implement reset filters in dashborad/analytics
-
-implement double click in dashboard/analytics
-
-implement appointment tab in analytics/ this month appointment
-
-implemented filtering in anlaytics/active users
-
-implemented filtering in anlaytics/activedoctors
-
-implement filtering in analytics
-
-make doctor columns resizible
-
-
-implement update doctor button
-
-
-implement add new button in doctors tab
-
-
-implement add new button in Clinics tab
-
-
-implement reset filters option in doctors tab
-
-
-implement delete doctors function
-
-
-implement filtering in Doctor.js
-
-
-fix model not showing in first instance
-
-
-implement block clinic button
-
-
-implement delete button
-
-
-fix dialog not showing in clinics tab
-
-
-implement show update, delete, and block buttons only when an item is…
+ implement commission tab
+implement commission tab
+ 
+implement logout functionality
+ 
+update payments demo data
+ 
+implement payment tab
+ 
+implement udpate fees
+ 
+implement reset filters button in fees tab
+ 
+fix floating filter issue in doctors and clinics tab
+ 
+ 
+fix filter button styling in clinics tab
+ 
+fix filter floating issue in analytics
+ 
+implement fees/doctor tab
+ 
+implement dialog for update and double click in fees/clinic
+ 
+fix too many renders bug
+ 
+add fees tab
+ 
+implement tabs in fee tab
  
